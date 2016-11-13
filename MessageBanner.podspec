@@ -36,6 +36,9 @@ Pod::Spec.new do |s|
   s.source_files = 'MessageBanner/Classes/**/*.{h,m}', 'MessageBanner/Views/**/*.{h,m}'
   s.resources = 'MessageBanner/Ressources/**/*.{png,json}'
 
+  # prevent Xcode 8.x's pngcrush from complaining
+  s.pod_target_xcconfig = { 'COMPRESS_PNG_FILES' => 0, 'STRIP_PNG_TEXT' => 0 }
+
   s.public_header_files = 'MessageBanner/Classes/**/*.{h}', 'MessageBanner/Views/**/*.{h}'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'HexColors', '~> 2.3.0'
